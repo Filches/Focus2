@@ -44,12 +44,23 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(left))
         {
             transform.Rotate(new Vector3(0, turnspeed * -1, 0));
+            anim.SetBool("Turn Left", true);
+        }
+        else
+        {
+            anim.SetBool("Turn Left", false);
         }
 
         if (Input.GetKey(right))
         {
             transform.Rotate(new Vector3(0, turnspeed, 0));
+            anim.SetBool("Turn Right", true);
         }
+        else
+        {
+            anim.SetBool("Turn Right", false);
+        }
+    
 
         if (Input.GetKeyDown(jump))
         {
