@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NavTag
   - Portal
+  - Ground
   layers:
   - Default
   - TransparentFX

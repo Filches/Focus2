@@ -60,13 +60,6 @@ public class PlayerScript : MonoBehaviour
         {
             anim.SetBool("Turn Right", false);
         }
-    
-
-        if (Input.GetKeyDown(jump))
-        {
-            rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
-            anim.SetTrigger("Jump");
-        }
 
         if (Input.GetKey(run))
         {
@@ -88,5 +81,17 @@ public class PlayerScript : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         anim.SetTrigger("Jump End");
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            if (Input.GetKeyDown(jump))
+            {
+                rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
+                anim.SetTrigger("Jump");
+            }
+        }
     }
 }
